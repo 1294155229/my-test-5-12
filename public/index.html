@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="stylesheet" href="./reset.css" />
+    <script>
+      (function() {
+        function w() {
+          var r = document.documentElement;
+          var a = r.getBoundingClientRect().width;
+          if (a > 750) {
+            a = 750;
+          }
+          rem = a / 7.5;
+          r.style.fontSize = rem + "px";
+        }
+        var t;
+        w();
+        window.addEventListener(
+          "resize",
+          function() {
+            clearTimeout(t);
+            t = setTimeout(w, 300);
+          },
+          false
+        );
+      })();
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <strong
+        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
+        properly without JavaScript enabled. Please enable it to
+        continue.</strong
+      >
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
